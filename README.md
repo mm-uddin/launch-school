@@ -1,0 +1,2 @@
+# launch-school
+LS Assignments
