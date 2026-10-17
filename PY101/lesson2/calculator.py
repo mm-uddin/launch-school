@@ -1,8 +1,8 @@
 # X Ask the user for the first number.
 # X Ask the user for the second number.
-# Ask the user for an operation to perform.
-# Perform the operation on the two numbers.
-# Print the result to the terminal
+# X Ask the user for an operation to perform.
+# X Perform the operation on the two numbers.
+# X Print the result to the terminal
 
 print('Welcome to the Calculator!')
 
