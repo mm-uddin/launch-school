@@ -1,8 +1,8 @@
-# Problem: 
-# a function that determines the index of the 3rd occurrence 
-# of a given character in a string. 
+# Problem:
+# a function that determines the index of the 3rd occurrence
+# of a given character in a string.
 # For instance, if the given character is 'x' and the string
-# is 'axbxcdxex', the function should  return 6 (the index of the 3rd 'x'). 
+# is 'axbxcdxex', the function should  return 6 (the index of the 3rd 'x').
 # If the given character does not occur at least 3 times, return None.
 
 
@@ -42,14 +42,19 @@ IF number_of_occurence < 3
 
 """
 
+"""
+Module third_occurence.py
 
+This modules find a character's third time occurence positiion
+in a given string
+
+"""
 
 def  thrd_occurence(spcl_chr, mssg):
     number_of_occurence = 0
     for n in range(len(mssg)):
         if mssg[n] == spcl_chr:
             number_of_occurence += 1
-        
         if number_of_occurence == 3:
             return n
 

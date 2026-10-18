@@ -4,29 +4,58 @@
 # X Perform the operation on the two numbers.
 # X Print the result to the terminal
 
-print('Welcome to the Calculator!')
+def prompt(message):
+    print(f"==> {message}")
 
-result = 0
+def invalid_number(number_str):
+    try:
+        int(number_str)
+    except ValueError:
+        return True
 
-print('Please enter the first number')
+    return False 
+
+
+
+
+prompt('Welcome to the Calculator!')
+
+
+prompt('Please enter the first number')
 num1 = input()
 
-print('Please enter the second number')
+while invalid_number(num1):
+    prompt("Hmm... that doesn't look like a valid number.")
+    num1 = input()
+
+
+prompt('Please enter the second number')
 num2 = input()
 
-print('Please select the operation that you want to perform \n' \
+while invalid_number(num2):
+    prompt("Hmm... that doesn't look like a valid number.")
+    num2 = input()
+
+
+prompt('Please select the operation that you want to perform \n' \
       '1) Add 2) Subtract 3) Multiply and 4) Division')
 
 operation = input()
 
-if operation == "1": # user has selected Addition
-    result = int(num1) + int(num2)
-elif operation == "2": # user has selected Subtraction
-    result = int(num1) - int(num2)
-elif operation == "3": # user has select Multiplication
-    result = int(num1) * int(num2)
-elif operation == "4": # user has selected Division
-    result = int(num1) / int(num2)
+while operation not in ["1", "2", "3", "4"]:
+    prompt('You must choose 1, 2, 3, or 4')
+    operation = input()
 
-print(f'The result is {result}')
+match operation:
+
+    case "1": # user has selected Addition
+        output = int(num1) + int(num2)
+    case "2": # user has selected Subtraction
+        output = int(num1) - int(num2)
+    case "3": # user has select Multiplication
+        output = int(num1) * int(num2)
+    case "4": # user has selected Division
+        output = int(num1) / int(num2)
+
+prompt(f'The result is {output}')
 
