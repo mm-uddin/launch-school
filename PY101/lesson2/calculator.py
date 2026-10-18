@@ -13,7 +13,7 @@ def invalid_number(number_str):
     except ValueError:
         return True
 
-    return False 
+    return False
 
 
 
@@ -58,4 +58,3 @@ match operation:
         output = int(num1) / int(num2)
 
 prompt(f'The result is {output}')
-
