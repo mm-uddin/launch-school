@@ -1,0 +1,13 @@
+my_var = "Hello"
+
+def my_func():
+    my_var = my_var + " world"
+    print(my_var)
+
+my_func()
+print(my_var)
+
+# This will raise UnboundLocalError. Because in line 4 
+when we assign my_var, it creates a new variable. But
+we are referring the value of my_var before the assignment
+is complete and hence the error is raised.
