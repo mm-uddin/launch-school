@@ -6,36 +6,30 @@ VALID_CHOICES = ['r', 'p', 'sc', 'l', 'sp']
 def prompt(message):
     print(f"==> {message}")
 
+
+WINNING_COMBOS = {
+    'r':     ['sc', 'l'],
+    'p':    ['r',     'sp'],
+    'sc': ['p',    'l'],
+    'l':   ['p',    'sp'],
+    'sp':    ['r',     'sc'],
+}
+
+def player_wins(player_choice, computer_choice):
+    return computer_choice in WINNING_COMBOS[player_choice]
+
 def display_winner(player, computer):
-    
-    if ((player == "r" and computer == "sc") or
-        (player == "r" and computer == "l") or
-        (player == "p" and computer == "r") or
-        (player == "p" and computer == "sp") or
-        (player == "sc" and computer == "p") or
-        (player == "sc" and computer == "l") or
-        (player == "l" and computer == "p") or
-        (player == "l" and computer == "sp") or
-        (player == "sp" and computer == "r") or
-        (player == "sp" and computer == "sc")):
-        return ("You win!")
-    elif ((player == "sc" and computer == "r") or
-          (player == "l" and computer == "r") or
-          (player == "r" and computer == "p") or
-          (player == "sp" and computer == "p") or
-          (player == "p" and computer == "sc") or
-          (player == "l" and computer == "sc") or
-          (player == "p" and computer == "l") or
-          (player == "sp" and computer == "l") or
-          (player == "r" and computer == "sp") or
-          (player == "sc" and computer == "sp")):
-        return ("Computer wins!")
+    if player_wins(player, computer):
+        return 'You win!'
+    elif player == computer:
+        return "It's a tie!"
     else:
-        return ("It's a tie!")
+        return "Computer wins!"
 
 
-player_wins = 0
-computer_wins = 0
+
+player_wins_num = 0
+computer_wins_num = 0
 
 while True:
     prompt(f'Choose one: {", ".join(VALID_CHOICES)}')
@@ -58,18 +52,18 @@ while True:
     prompt(winner)
     
     if winner == "You win!":
-        player_wins += 1
+        player_wins_num += 1
     elif winner == "Computer wins!":
-        computer_wins += 1
+        computer_wins_num += 1
     
-    print(f'Player wins for {player_wins} times')
-    print(f'Computer wins for {computer_wins} times')    
+    print(f'Player wins for {player_wins_num} times')
+    print(f'Computer wins for {computer_wins_num} times')    
     
 
-    if player_wins == 3 or computer_wins == 3:
-        if player_wins > computer_wins:
+    if player_wins_num == 3 or computer_wins_num == 3:
+        if player_wins_num > computer_wins_num:
             prompt("You are the grand winner")
-        elif computer_wins > player_wins:
+        elif computer_wins_num > player_wins_num:
             prompt("Computer is the grand winner")
 
         break
