@@ -1,0 +1,15 @@
+'''
+Problem Statement
+Write a function that takes two arguments, a string and a positive integer, 
+then prints the string as many times as the integer indicates.
+
+
+
+'''
+
+def repeat(str, num):
+    for i in range (0, num):
+        print(str)
+
+repeat('Hello', 3)
+
